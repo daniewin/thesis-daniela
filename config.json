@@ -1,0 +1,33 @@
+{   "server": "lhitecserver1",
+    "mode": "soft",
+    "data": {
+        "data_dir_lhitecserver1": "/data-fast/winter/isead/38k/birds/SegmentationMask",
+        "input": {
+            "image_dir": "GT_birds/JPEGImages/",
+            "hard_label_dir": "GT_birds/SegmentationClass/",
+            "soft_label_dir": "teacher_soft_labels/output_bird_threshold_20",
+            "soft_label_filename_ending": "_bird._sea_20_0_0.05_0.1_0.1",
+            "split_train_path": "GT/ImageSets/Segmentation/Train.txt", 
+            "split_val_path": "GT/ImageSets/Segmentation/Validation.txt",
+            "split_test_path": "GT/ImageSets/Segmentation/Test.txt",
+            "csv_path_gt": "GT_birds/csv_GT/prediction_no_spread.csv"
+        },
+        "output": {
+            "test_images_out_dir": "student_predictions/GT_birds_student_bird_sea_20_0.05",
+            "logfile_path": "logfile.log",
+            "binary_threshold": 0
+        }
+    },
+    "model": {
+        "checkpoint_dir_lhitecserver1": "/data-fast/winter/checkpoints", 
+        "checkpoint_file": "GT_birds_student_bird_sea_20_0.05"
+    },
+    "training": {
+        "num_epochs": 20,
+        "batch_size": 100,
+        "lr": 0.01,
+        "loss": "Dice", 
+        "optimizer": "adam", 
+        "temperature": 3
+    } 
+}
